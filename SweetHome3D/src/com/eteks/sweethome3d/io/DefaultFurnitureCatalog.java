@@ -161,6 +161,10 @@ public class DefaultFurnitureCatalog extends FurnitureCatalog {
      */
     HEIGHT("height"),
     /**
+     * The key for the volume in cubic centimeters of a piece of furniture (mandatory).
+     */
+    VOLUME("volume"),
+    /**
      * The key for the movability of a piece of furniture (mandatory).
      * If the value of this key is <code>true</code>, the piece of furniture
      * will be considered as a movable piece. 
@@ -612,6 +616,7 @@ public class DefaultFurnitureCatalog extends FurnitureCatalog {
     float width = Float.parseFloat(resource.getString(PropertyKey.WIDTH.getKey(index)));
     float depth = Float.parseFloat(resource.getString(PropertyKey.DEPTH.getKey(index)));
     float height = Float.parseFloat(resource.getString(PropertyKey.HEIGHT.getKey(index)));
+    float volume = width * depth * height;
     float elevation = getOptionalFloat(resource, PropertyKey.ELEVATION.getKey(index), 0);
     float dropOnTopElevation = getOptionalFloat(resource, PropertyKey.DROP_ON_TOP_ELEVATION.getKey(index), height) / height;
     boolean movable = Boolean.parseBoolean(resource.getString(PropertyKey.MOVABLE.getKey(index)));
